@@ -15,9 +15,39 @@
 @property (nonatomic, strong) UITextField *passwordField;
 @property (nonatomic, strong) NSArray *textFields;
 
+- (IBAction)done:(id)sender;
+- (void)login;
+
 @end
 
 @implementation LoginController
+
+#pragma mark - Methods
+
+- (void)login {
+    UIView *dimView = [[UIView alloc] initWithFrame:self.navigationController.view.frame];
+    dimView.backgroundColor = [UIColor blackColor];
+    dimView.alpha = 0.f;
+    
+    [self.view addSubview:dimView];
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        dimView.alpha = 0.5f;
+    }];
+    
+    [PFUser logInWithUsernameInBackground:_studentIdField.text password:_passwordField.text block:^(PFUser *user, NSError *error) {
+        if (error) {
+            NSLog(@"Error logging in: %@", error.localizedDescription);
+            
+        } else {
+            [self performSegueWithIdentifier:@"ToQueue" sender:self];
+        }
+    }];
+}
+
+- (IBAction)done:(id)sender {
+    [self login];
+}
 
 #pragma mark - Table
 
@@ -73,14 +103,7 @@
             NSLog(@"Empty");
             
         } else {
-            [PFUser logInWithUsernameInBackground:_studentIdField.text password:_passwordField.text block:^(PFUser *user, NSError *error) {
-                if (error) {
-                    NSLog(@"Error logging in: %@", error.localizedDescription);
-                    
-                } else {
-                    [self performSegueWithIdentifier:@"ToQueue" sender:self];
-                }
-            }];
+            [self login];
         }
     }
     

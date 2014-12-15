@@ -16,9 +16,44 @@
 @property (nonatomic, strong) UITextField *passwordField;
 @property (nonatomic, strong) NSArray *textFields;
 
+- (IBAction)done:(id)sender;
+- (void)signUp;
+
 @end
 
 @implementation SignUpController
+
+#pragma mark - Methods
+
+- (void)signUp {
+    UIView *dimView = [[UIView alloc] initWithFrame:self.navigationController.view.frame];
+    dimView.backgroundColor = [UIColor blackColor];
+    dimView.alpha = 0.f;
+    
+    [self.view addSubview:dimView];
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        dimView.alpha = 0.5f;
+    }];
+    
+    PFUser *user = [PFUser user];
+    user[@"name"] = _nameField.text;
+    user.username = _studentIdField.text;
+    user.password = _passwordField.text;
+    
+    [user signUpInBackgroundWithBlock:^(BOOL success, NSError *error) {
+        if (error) {
+            NSLog(@"Error signing up user: %@", error.localizedDescription);
+            
+        } else {
+            [self performSegueWithIdentifier:@"ToQueue" sender:self];
+        }
+    }];
+}
+
+- (IBAction)done:(id)sender {
+    [self signUp];
+}
 
 #pragma mark - Table
 
@@ -81,19 +116,7 @@
             NSLog(@"Empty");
             
         } else {
-            PFUser *user = [PFUser user];
-            user[@"name"] = _nameField.text;
-            user.username = _studentIdField.text;
-            user.password = _passwordField.text;
-            
-            [user signUpInBackgroundWithBlock:^(BOOL success, NSError *error) {
-                if (error) {
-                    NSLog(@"Error signing up user: %@", error.localizedDescription);
-                    
-                } else {
-                    [self performSegueWithIdentifier:@"ToQueue" sender:self];
-                }
-            }];
+            [self signUp];
         }
     }
     

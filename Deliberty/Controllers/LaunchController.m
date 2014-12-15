@@ -31,6 +31,14 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
+    if ([PFUser currentUser]) {
+        [self performSegueWithIdentifier:@"ToQueue" sender:self];
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 - (void)viewDidLoad {

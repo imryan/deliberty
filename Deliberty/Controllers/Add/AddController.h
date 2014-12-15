@@ -1,5 +1,5 @@
 //
-//  LaunchController.h
+//  AddController.h
 //  Deliberty
 //
 //  Created by Ryan Cohen on 12/15/14.
@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Parse/Parse.h>
 
-@interface LaunchController : UIViewController
+@interface AddController : UIViewController
 
 @end

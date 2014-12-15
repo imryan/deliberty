@@ -105,6 +105,7 @@
                     <connections>
                         <outlet property="loginButton" destination="hwt-7O-oPq" id="fky-hX-cJe"/>
                         <outlet property="signUpButton" destination="tEf-iG-Klf" id="hWC-cz-qmj"/>
+                        <segue destination="RWX-t2-sJh" kind="show" identifier="ToQueue" id="mc4-Ye-Ed3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gce-eU-MiV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -200,7 +201,7 @@
         <!--Deliberty-->
         <scene sceneID="e7x-9S-ly7">
             <objects>
-                <viewController id="RWX-t2-sJh" customClass="QueueController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Queue" id="RWX-t2-sJh" customClass="QueueController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zdY-Zb-9q3"/>
                         <viewControllerLayoutGuide type="bottom" id="0z4-Aj-hvS"/>
@@ -209,9 +210,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Pi6-1U-QDQ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="Pi6-1U-QDQ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="RWX-t2-sJh" id="Lum-Ul-sc8"/>
                                     <outlet property="delegate" destination="RWX-t2-sJh" id="st7-g8-k1U"/>
@@ -228,6 +229,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Deliberty" id="fgP-rK-6L1">
                         <barButtonItem key="backBarButtonItem" title=" " id="JM9-tZ-qDf"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ldv-9z-8qV">
+                            <connections>
+                                <segue destination="JBr-5e-jkQ" kind="presentation" id="Zmh-yM-GZ7"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -236,10 +242,61 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v0o-T7-SRG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3343.5" y="382.5"/>
+            <point key="canvasLocation" x="3355.5" y="382.5"/>
+        </scene>
+        <!--Add Controller-->
+        <scene sceneID="3We-By-ku9">
+            <objects>
+                <viewController id="JBr-5e-jkQ" customClass="AddController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gUs-yc-0dK"/>
+                        <viewControllerLayoutGuide type="bottom" id="aQL-dv-rJQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RIU-Ea-BaU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zw-xc-Tqu">
+                                <rect key="frame" x="0.0" y="-10" width="375" height="74"/>
+                                <color key="barTintColor" red="0.81176470590000005" green="0.0" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Add" prompt=" " id="AHx-0C-OdU">
+                                        <barButtonItem key="backBarButtonItem" title=" " id="6H5-bR-Ntt"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="5WB-QS-riI">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="cancel:" destination="JBr-5e-jkQ" id="drg-Qa-HJx"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZST-ke-vBo">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="add:" destination="JBr-5e-jkQ" id="lxH-LW-hXO"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5zw-xc-Tqu" firstAttribute="leading" secondItem="RIU-Ea-BaU" secondAttribute="leading" id="MvR-qD-ZH1"/>
+                            <constraint firstAttribute="trailing" secondItem="5zw-xc-Tqu" secondAttribute="trailing" id="ssU-3l-dmC"/>
+                            <constraint firstItem="aQL-dv-rJQ" firstAttribute="top" secondItem="5zw-xc-Tqu" secondAttribute="bottom" constant="603" id="xVe-id-Vyh"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4LD-Ro-qSR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3813.5" y="382.5"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="crn-nB-qt4"/>
+        <segue reference="fbg-kb-DmQ"/>
     </inferredMetricsTieBreakers>
 </document>
