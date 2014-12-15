@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+
+#define RED_COLOR [UIColor colorWithRed:204/255.f green:0/255.f blue:15/255.f alpha:1.f]
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

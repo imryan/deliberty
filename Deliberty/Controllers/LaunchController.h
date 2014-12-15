@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  LaunchController.h
 //  Deliberty
 //
 //  Created by Ryan Cohen on 12/15/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface LaunchController : UIViewController
 
 @end
-

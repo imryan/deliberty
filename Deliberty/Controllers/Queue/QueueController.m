@@ -1,18 +1,20 @@
 //
-//  ViewController.m
+//  QueueController.m
 //  Deliberty
 //
 //  Created by Ryan Cohen on 12/15/14.
 //  Copyright (c) 2014 Ryan Cohen. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "QueueController.h"
 
-@interface ViewController ()
+@interface QueueController ()
+
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
 
 @end
 
-@implementation ViewController
+@implementation QueueController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
