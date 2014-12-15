@@ -147,6 +147,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="tableView" destination="mEH-7s-dqp" id="ZgR-aD-MzP"/>
+                        <segue destination="RWX-t2-sJh" kind="show" identifier="ToQueue" id="fbg-kb-DmQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XAV-Oi-Dbn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -189,11 +190,56 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="tableView" destination="F1L-dY-uZ6" id="P10-WE-fxM"/>
+                        <segue destination="RWX-t2-sJh" kind="show" identifier="ToQueue" id="crn-nB-qt4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cbq-Rr-Bh3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2902.5" y="382.5"/>
         </scene>
+        <!--Deliberty-->
+        <scene sceneID="e7x-9S-ly7">
+            <objects>
+                <viewController id="RWX-t2-sJh" customClass="QueueController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zdY-Zb-9q3"/>
+                        <viewControllerLayoutGuide type="bottom" id="0z4-Aj-hvS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7hW-yl-QWd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Pi6-1U-QDQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="RWX-t2-sJh" id="Lum-Ul-sc8"/>
+                                    <outlet property="delegate" destination="RWX-t2-sJh" id="st7-g8-k1U"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Pi6-1U-QDQ" firstAttribute="leading" secondItem="7hW-yl-QWd" secondAttribute="leading" id="QcB-PX-O2j"/>
+                            <constraint firstAttribute="trailing" secondItem="Pi6-1U-QDQ" secondAttribute="trailing" id="WgN-OR-dKp"/>
+                            <constraint firstItem="Pi6-1U-QDQ" firstAttribute="bottom" secondItem="0z4-Aj-hvS" secondAttribute="top" id="gbN-w7-NXu"/>
+                            <constraint firstItem="Pi6-1U-QDQ" firstAttribute="top" secondItem="7hW-yl-QWd" secondAttribute="top" id="kTE-gX-QcA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Deliberty" id="fgP-rK-6L1">
+                        <barButtonItem key="backBarButtonItem" title=" " id="JM9-tZ-qDf"/>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="Pi6-1U-QDQ" id="s13-R0-oS1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v0o-T7-SRG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3343.5" y="382.5"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="crn-nB-qt4"/>
+    </inferredMetricsTieBreakers>
 </document>

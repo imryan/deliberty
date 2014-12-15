@@ -77,14 +77,31 @@
         [nextTextField becomeFirstResponder];
         
     } else {
-        NSLog(@"Validate");
+        if ([self isEmpty:_nameField.text] || [self isEmpty:_studentIdField.text] || [self isEmpty:_passwordField.text]) {
+            NSLog(@"Empty");
+            
+        } else {
+            PFUser *user = [PFUser user];
+            user[@"name"] = _nameField.text;
+            user.username = _studentIdField.text;
+            user.password = _passwordField.text;
+            
+            [user signUpInBackgroundWithBlock:^(BOOL success, NSError *error) {
+                if (error) {
+                    NSLog(@"Error signing up user: %@", error.localizedDescription);
+                    
+                } else {
+                    [self performSegueWithIdentifier:@"ToQueue" sender:self];
+                }
+            }];
+        }
     }
     
     return YES;
 }
 
 - (BOOL)isEmpty:(NSString *)string {
-    if ([string length] == 0) {
+    if (string.length == 0) {
         return true;
     }
     

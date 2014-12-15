@@ -69,7 +69,19 @@
         [nextTextField becomeFirstResponder];
         
     } else {
-        NSLog(@"Validate");
+        if ([self isEmpty:_studentIdField.text] || [self isEmpty:_passwordField.text]) {
+            NSLog(@"Empty");
+            
+        } else {
+            [PFUser logInWithUsernameInBackground:_studentIdField.text password:_passwordField.text block:^(PFUser *user, NSError *error) {
+                if (error) {
+                    NSLog(@"Error logging in: %@", error.localizedDescription);
+                    
+                } else {
+                    [self performSegueWithIdentifier:@"ToQueue" sender:self];
+                }
+            }];
+        }
     }
     
     return YES;
