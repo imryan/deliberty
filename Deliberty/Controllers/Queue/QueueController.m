@@ -76,9 +76,12 @@
 
 #pragma mark - View
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self refresh];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self refresh];
     self.navigationItem.hidesBackButton = YES;
     
     _refreshControl = [UIRefreshControl new];
