@@ -211,9 +211,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="Pi6-1U-QDQ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="97" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="Pi6-1U-QDQ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CellId" rowHeight="97" id="dtU-R8-1dW" customClass="QueueCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dtU-R8-1dW" id="zTg-F5-jad">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ryan Cohen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEQ-Yp-lVr">
+                                                    <rect key="frame" x="8" y="12" width="334" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C205" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7JO-ZY-fUW">
+                                                    <rect key="frame" x="8" y="65" width="334" height="19"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="19" id="Fgz-qr-tgx"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doritos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4i-wW-bCb">
+                                                    <rect key="frame" x="8" y="39" width="334" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7JO-ZY-fUW" firstAttribute="top" secondItem="M4i-wW-bCb" secondAttribute="bottom" constant="5" id="4Fs-JM-gPZ"/>
+                                                <constraint firstItem="M4i-wW-bCb" firstAttribute="leading" secondItem="zTg-F5-jad" secondAttribute="leadingMargin" id="67x-ja-Hhf"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="7JO-ZY-fUW" secondAttribute="bottom" constant="4.5" id="9pe-Ma-hXY"/>
+                                                <constraint firstItem="M4i-wW-bCb" firstAttribute="leading" secondItem="7JO-ZY-fUW" secondAttribute="leading" id="DnQ-mS-vEl"/>
+                                                <constraint firstItem="cEQ-Yp-lVr" firstAttribute="top" secondItem="zTg-F5-jad" secondAttribute="topMargin" constant="4" id="JWO-R3-mcU"/>
+                                                <constraint firstItem="7JO-ZY-fUW" firstAttribute="trailing" secondItem="M4i-wW-bCb" secondAttribute="trailing" id="Vbl-N1-EI8"/>
+                                                <constraint firstItem="M4i-wW-bCb" firstAttribute="centerY" secondItem="zTg-F5-jad" secondAttribute="centerY" constant="1" id="aGx-y8-Zt5"/>
+                                                <constraint firstItem="M4i-wW-bCb" firstAttribute="top" secondItem="cEQ-Yp-lVr" secondAttribute="bottom" constant="6" id="bf4-qH-azT"/>
+                                                <constraint firstItem="cEQ-Yp-lVr" firstAttribute="trailing" secondItem="M4i-wW-bCb" secondAttribute="trailing" id="fPM-31-7Dy"/>
+                                                <constraint firstAttribute="trailing" secondItem="M4i-wW-bCb" secondAttribute="trailing" id="fhZ-7J-cR8"/>
+                                                <constraint firstItem="M4i-wW-bCb" firstAttribute="leading" secondItem="cEQ-Yp-lVr" secondAttribute="leading" id="w7a-Yi-Qbs"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="itemLabel" destination="M4i-wW-bCb" id="qKY-1U-T3N"/>
+                                            <outlet property="nameLabel" destination="cEQ-Yp-lVr" id="q3b-ti-mrc"/>
+                                            <outlet property="roomLabel" destination="7JO-ZY-fUW" id="Je5-RW-WDg"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="RWX-t2-sJh" id="Lum-Ul-sc8"/>
                                     <outlet property="delegate" destination="RWX-t2-sJh" id="st7-g8-k1U"/>

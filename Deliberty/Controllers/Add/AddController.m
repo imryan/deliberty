@@ -26,9 +26,24 @@
 #pragma mark - Methods
 
 - (IBAction)add:(id)sender {
-    // Store request in Queue class
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if ([self isEmpty:_roomField.text] || [_itemName isEqualToString:@"Select Item"]) {
+        NSLog(@"Incomplete");
+        
+    } else {
+        PFObject *object = [PFObject objectWithClassName:@"Queue"];
+        object[@"name"] = [PFUser currentUser][@"name"];
+        object[@"room"] = _roomField.text;
+        object[@"item"] = _itemName;
+        
+        [object saveInBackgroundWithBlock:^(BOOL success, NSError *error) {
+            if (success) {
+                [self dismissViewControllerAnimated:YES completion:nil];
+                
+            } else {
+                NSLog(@"Error: %@", error.localizedDescription);
+            }
+        }];
+    }
 }
 
 - (IBAction)cancel:(id)sender {
@@ -124,6 +139,18 @@
     textField.font = [UIFont fontWithName:@"HelveticaNeue" size:16.f];
     
     return textField;
+}
+
+- (BOOL)isEmpty:(NSString *)string {
+    if (string.length == 0) {
+        return true;
+    }
+    
+    if (![[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length]) {
+        return true;
+    }
+    
+    return false;
 }
 
 #pragma mark - View

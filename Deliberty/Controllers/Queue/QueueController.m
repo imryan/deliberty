@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (nonatomic, strong) NSArray *requests;
 
 - (void)refresh;
 
@@ -24,17 +25,27 @@
 - (void)refresh {
     [_refreshControl beginRefreshing];
     
-    // Load fresh data
+    PFQuery *query = [PFQuery queryWithClassName:@"Queue"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error.localizedDescription);
+            
+        } else {
+            _requests = [NSArray arrayWithArray:objects];
+            [self.tableView reloadData];
+            [_refreshControl endRefreshing];
+        }
+    }];
 }
 
 #pragma mark - Table
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return _requests.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 64.f;
+    return 97.f;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -43,15 +54,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellId = @"CellId";
-    UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellId];
+    QueueCell *cell = (QueueCell *)[tableView dequeueReusableCellWithIdentifier:cellId];
     
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+        cell = [[QueueCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
     }
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
-    cell.textLabel.text = @"Test";
+    PFObject *object = [_requests objectAtIndex:indexPath.row];
+    cell.nameLabel.text = object[@"name"];
+    cell.itemLabel.text = object[@"item"];
+    cell.roomLabel.text = object[@"room"];
     
     return cell;
 }

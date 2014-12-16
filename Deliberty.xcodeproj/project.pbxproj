@@ -35,6 +35,7 @@
 		942764851A3F7248007AF15C /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 942764841A3F7248007AF15C /* LoginController.m */; };
 		942764891A3F8FE3007AF15C /* AddController.m in Sources */ = {isa = PBXBuildFile; fileRef = 942764881A3F8FE3007AF15C /* AddController.m */; };
 		9427648D1A40BD6F007AF15C /* ItemsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9427648C1A40BD6F007AF15C /* ItemsController.m */; };
+		942764961A40E059007AF15C /* QueueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 942764951A40E059007AF15C /* QueueCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,8 @@
 		942764881A3F8FE3007AF15C /* AddController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddController.m; path = Controllers/Add/AddController.m; sourceTree = "<group>"; };
 		9427648B1A40BD6F007AF15C /* ItemsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemsController.h; path = Controllers/Items/ItemsController.h; sourceTree = "<group>"; };
 		9427648C1A40BD6F007AF15C /* ItemsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemsController.m; path = Controllers/Items/ItemsController.m; sourceTree = "<group>"; };
+		942764941A40E059007AF15C /* QueueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QueueCell.h; path = Cell/QueueCell.h; sourceTree = "<group>"; };
+		942764951A40E059007AF15C /* QueueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QueueCell.m; path = Cell/QueueCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +148,7 @@
 		9427642C1A3F6728007AF15C /* Deliberty */ = {
 			isa = PBXGroup;
 			children = (
+				942764931A40E04B007AF15C /* Cell */,
 				942764531A3F6730007AF15C /* Delegate */,
 				942764541A3F6738007AF15C /* Controllers */,
 				942764371A3F6728007AF15C /* Main.storyboard */,
@@ -280,6 +284,15 @@
 			name = Items;
 			sourceTree = "<group>";
 		};
+		942764931A40E04B007AF15C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				942764941A40E059007AF15C /* QueueCell.h */,
+				942764951A40E059007AF15C /* QueueCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -384,6 +397,7 @@
 				9427647A1A3F6C12007AF15C /* LaunchController.m in Sources */,
 				9427648D1A40BD6F007AF15C /* ItemsController.m in Sources */,
 				9427647D1A3F6C28007AF15C /* QueueController.m in Sources */,
+				942764961A40E059007AF15C /* QueueCell.m in Sources */,
 				942764811A3F723A007AF15C /* SignUpController.m in Sources */,
 				942764331A3F6728007AF15C /* AppDelegate.m in Sources */,
 				942764301A3F6728007AF15C /* main.m in Sources */,
