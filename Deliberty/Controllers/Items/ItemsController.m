@@ -40,7 +40,7 @@
         rows = _snacks.count;
     }
     
-    else if (section == 0) {
+    else if (section == 1) {
         rows = _drinks.count;
         
     } else {
@@ -105,9 +105,8 @@
         
         else if (indexPath.section == 1) {
             delegate.item = [_drinks objectAtIndex:indexPath.row];
-        }
-        
-        else if (indexPath.section == 2) {
+            
+        } else {
             delegate.item = [_iceCreams objectAtIndex:indexPath.row];
         }
         
@@ -143,7 +142,7 @@
                 @"Dasani Water",
                 @"Dasani Water (Lemon)",
                 @"Dasani Water (Strawberry)",
-                @"Dasani Water (Raspberry)",
+                @"Dasani Water (Raspberry)"
                 ];
     
     _iceCreams = @[
@@ -153,7 +152,7 @@
                 @"Sour Swell",
                 @"Cotton Candy",
                 @"Ice Cream Sandwich",
-                @"Sour Cherry",
+                @"Sour Cherry"
                 ];
 }
 

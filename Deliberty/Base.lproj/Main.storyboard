@@ -77,10 +77,9 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By using this app, you agree to Terms of Use and Privacy Policy." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QG2-fj-bdy">
-                                <rect key="frame" x="96" y="603" width="182" height="37"/>
+                                <rect key="frame" x="16" y="603" width="343" height="37"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="182" id="4vA-wS-gXV"/>
-                                    <constraint firstAttribute="height" constant="37" id="63K-Gd-EXH"/>
+                                    <constraint firstAttribute="height" constant="37" id="bi0-mk-pk9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
@@ -91,11 +90,12 @@
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="zAr-LW-GYA" secondAttribute="centerX" constant="0.5" id="3aq-hV-SEF"/>
                             <constraint firstAttribute="centerX" secondItem="tEf-iG-Klf" secondAttribute="centerX" constant="0.5" id="3jJ-76-OvR"/>
+                            <constraint firstItem="QG2-fj-bdy" firstAttribute="leading" secondItem="aLc-pM-Dt0" secondAttribute="leadingMargin" id="IeU-Wk-N02"/>
                             <constraint firstAttribute="centerY" secondItem="hwt-7O-oPq" secondAttribute="centerY" constant="-56.5" id="QA3-fg-teu"/>
                             <constraint firstAttribute="centerY" secondItem="tEf-iG-Klf" secondAttribute="centerY" constant="6.5" id="R1u-8r-XPz"/>
                             <constraint firstAttribute="centerX" secondItem="hwt-7O-oPq" secondAttribute="centerX" constant="0.5" id="WqF-VX-TEU"/>
-                            <constraint firstAttribute="centerX" secondItem="QG2-fj-bdy" secondAttribute="centerX" constant="0.5" id="XAt-cG-8YE"/>
-                            <constraint firstAttribute="centerY" secondItem="QG2-fj-bdy" secondAttribute="centerY" constant="-288" id="vLP-Jf-Pt4"/>
+                            <constraint firstItem="2Am-ci-0Ju" firstAttribute="top" secondItem="QG2-fj-bdy" secondAttribute="bottom" constant="27" id="id5-L7-TCG"/>
+                            <constraint firstItem="QG2-fj-bdy" firstAttribute="centerX" secondItem="hwt-7O-oPq" secondAttribute="centerX" id="q31-Oq-aFG"/>
                             <constraint firstAttribute="centerY" secondItem="zAr-LW-GYA" secondAttribute="centerY" constant="150.5" id="wAq-h4-mDC"/>
                         </constraints>
                     </view>
@@ -324,7 +324,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9OR-fS-2ml">
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9OR-fS-2ml">
                                 <rect key="frame" x="0.0" y="-10" width="375" height="74"/>
                                 <color key="barTintColor" red="0.81176470590000005" green="0.0" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
@@ -342,7 +342,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="D0f-uu-tlQ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="D0f-uu-tlQ">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <connections>
@@ -352,6 +352,15 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="D0f-uu-tlQ" firstAttribute="top" secondItem="9OR-fS-2ml" secondAttribute="bottom" id="712-2h-m7K"/>
+                            <constraint firstAttribute="trailing" secondItem="D0f-uu-tlQ" secondAttribute="trailing" id="9ZB-CJ-ZkY"/>
+                            <constraint firstItem="9OR-fS-2ml" firstAttribute="top" secondItem="q6R-Dk-lZ8" secondAttribute="topMargin" constant="-10" id="BLv-6s-LMP"/>
+                            <constraint firstItem="9OR-fS-2ml" firstAttribute="leading" secondItem="D0f-uu-tlQ" secondAttribute="leading" id="VLf-yJ-iXG"/>
+                            <constraint firstItem="D0f-uu-tlQ" firstAttribute="leading" secondItem="q6R-Dk-lZ8" secondAttribute="leading" id="ZdS-b5-NfR"/>
+                            <constraint firstItem="9OR-fS-2ml" firstAttribute="trailing" secondItem="D0f-uu-tlQ" secondAttribute="trailing" id="eng-bk-2ni"/>
+                            <constraint firstItem="D0f-uu-tlQ" firstAttribute="bottom" secondItem="e4r-Fq-i5F" secondAttribute="top" id="wXn-M1-ppT"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -364,6 +373,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fbg-kb-DmQ"/>
+        <segue reference="mc4-Ye-Ed3"/>
     </inferredMetricsTieBreakers>
 </document>
