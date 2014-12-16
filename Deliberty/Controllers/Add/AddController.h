@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
 #define CELL_TEXTFIELD_FRAME CGRectMake(20, 9, 275, 40)
 

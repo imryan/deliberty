@@ -12,9 +12,12 @@
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UITextField *roomField;
+@property (nonatomic, copy) NSString *itemName;
+@property (nonatomic, copy) NSString *totalCost;
 
 - (IBAction)add:(id)sender;
 - (IBAction)cancel:(id)sender;
+- (void)updateItem;
 
 @end
 
@@ -30,6 +33,14 @@
 
 - (IBAction)cancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)updateItem {
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    _itemName = delegate.item;
+    _totalCost = @"$2.00";
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table
@@ -55,11 +66,15 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NSString *title = @"";
+    
     if (section == 0) {
-        return @"Request Item";
+        title = @"Request Item";
+    } else {
+        title = @"Total";
     }
     
-    return nil;
+    return title;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -77,8 +92,7 @@
         }
         
         else if (indexPath.row == 1) {
-            // Item selection
-            cell.textLabel.text = @"Select Item";
+            cell.textLabel.text = _itemName;
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
         
@@ -86,7 +100,7 @@
         if (indexPath.row == 0) {
             cell.userInteractionEnabled = NO;
             cell.textLabel.enabled = NO;
-            cell.textLabel.text = @"Total: $0";
+            cell.textLabel.text = _totalCost;
         }
     }
     
@@ -94,6 +108,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 1) {
+        [self performSegueWithIdentifier:@"ToItems" sender:nil];
+    }
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -112,24 +130,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _itemName = @"Select Item";
+    _totalCost = @"$0.00";
     
     _roomField = [self cellTextField];
     [_roomField becomeFirstResponder];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateItem) name:@"UpdateItemNotification" object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

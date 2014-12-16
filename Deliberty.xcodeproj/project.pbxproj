@@ -34,6 +34,7 @@
 		942764811A3F723A007AF15C /* SignUpController.m in Sources */ = {isa = PBXBuildFile; fileRef = 942764801A3F723A007AF15C /* SignUpController.m */; };
 		942764851A3F7248007AF15C /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 942764841A3F7248007AF15C /* LoginController.m */; };
 		942764891A3F8FE3007AF15C /* AddController.m in Sources */ = {isa = PBXBuildFile; fileRef = 942764881A3F8FE3007AF15C /* AddController.m */; };
+		9427648D1A40BD6F007AF15C /* ItemsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9427648C1A40BD6F007AF15C /* ItemsController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,8 @@
 		942764841A3F7248007AF15C /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginController.m; path = Controllers/Login/LoginController.m; sourceTree = "<group>"; };
 		942764871A3F8FE3007AF15C /* AddController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddController.h; path = Controllers/Add/AddController.h; sourceTree = "<group>"; };
 		942764881A3F8FE3007AF15C /* AddController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddController.m; path = Controllers/Add/AddController.m; sourceTree = "<group>"; };
+		9427648B1A40BD6F007AF15C /* ItemsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemsController.h; path = Controllers/Items/ItemsController.h; sourceTree = "<group>"; };
+		9427648C1A40BD6F007AF15C /* ItemsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemsController.m; path = Controllers/Items/ItemsController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +193,7 @@
 		942764541A3F6738007AF15C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9427648A1A40BD1A007AF15C /* Items */,
 				942764861A3F8FD9007AF15C /* Add */,
 				942764821A3F723E007AF15C /* Login */,
 				9427647E1A3F7229007AF15C /* Sign up */,
@@ -265,6 +269,15 @@
 				942764881A3F8FE3007AF15C /* AddController.m */,
 			);
 			name = Add;
+			sourceTree = "<group>";
+		};
+		9427648A1A40BD1A007AF15C /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				9427648B1A40BD6F007AF15C /* ItemsController.h */,
+				9427648C1A40BD6F007AF15C /* ItemsController.m */,
+			);
+			name = Items;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,6 +382,7 @@
 			files = (
 				942764891A3F8FE3007AF15C /* AddController.m in Sources */,
 				9427647A1A3F6C12007AF15C /* LaunchController.m in Sources */,
+				9427648D1A40BD6F007AF15C /* ItemsController.m in Sources */,
 				9427647D1A3F6C28007AF15C /* QueueController.m in Sources */,
 				942764811A3F723A007AF15C /* SignUpController.m in Sources */,
 				942764331A3F6728007AF15C /* AppDelegate.m in Sources */,

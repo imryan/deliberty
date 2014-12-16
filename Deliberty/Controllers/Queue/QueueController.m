@@ -11,10 +11,21 @@
 @interface QueueController ()
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
+
+- (void)refresh;
 
 @end
 
 @implementation QueueController
+
+#pragma mark - Methods
+
+- (void)refresh {
+    [_refreshControl beginRefreshing];
+    
+    // Load fresh data
+}
 
 #pragma mark - Table
 
@@ -53,7 +64,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self refresh];
     self.navigationItem.hidesBackButton = YES;
+    
+    _refreshControl = [UIRefreshControl new];
+    [_refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:_refreshControl];
 }
 
 - (void)didReceiveMemoryWarning {
