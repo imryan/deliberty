@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddController : UIViewController
+#define CELL_TEXTFIELD_FRAME CGRectMake(20, 9, 275, 40)
+
+@interface AddController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
 @end
