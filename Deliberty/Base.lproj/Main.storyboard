@@ -144,7 +144,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Sign Up" id="any-uS-oS2">
                         <barButtonItem key="backBarButtonItem" title=" " id="rfi-Ek-ivm"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="z77-Ba-0JH"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="z77-Ba-0JH">
+                            <connections>
+                                <action selector="done:" destination="TQK-fK-quy" id="Gkl-vl-liN"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -187,7 +191,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="E9K-X6-kaU">
                         <barButtonItem key="backBarButtonItem" title=" " id="2zp-pH-6QN"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="NFe-Ll-dri"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="NFe-Ll-dri">
+                            <connections>
+                                <action selector="done:" destination="8nF-WN-ybj" id="jcU-bo-XQE"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -423,6 +431,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mc4-Ye-Ed3"/>
+        <segue reference="crn-nB-qt4"/>
     </inferredMetricsTieBreakers>
 </document>
