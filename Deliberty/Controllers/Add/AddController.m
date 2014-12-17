@@ -104,6 +104,8 @@
     
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
             _roomField.placeholder = @"Room #";
             [cell.contentView addSubview:_roomField];
         }

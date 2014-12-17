@@ -83,7 +83,7 @@
         [alert dismissViewControllerAnimated:YES completion:nil];
     }];
     
-    UIAlertAction *accept = [UIAlertAction actionWithTitle:@"Accept" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    UIAlertAction *accept = [UIAlertAction actionWithTitle:@"Deliver" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         PFObject *item = (PFObject *)[_requests objectAtIndex:indexPath.row];
         PFQuery *query = [PFQuery queryWithClassName:@"Queue"];
         
