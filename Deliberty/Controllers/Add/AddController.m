@@ -34,6 +34,7 @@
         object[@"name"] = [PFUser currentUser][@"name"];
         object[@"room"] = _roomField.text;
         object[@"item"] = _itemName;
+        object[@"claimed"] = @(NO);
         
         [object saveInBackgroundWithBlock:^(BOOL success, NSError *error) {
             if (success) {

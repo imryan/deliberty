@@ -26,6 +26,9 @@
     [_refreshControl beginRefreshing];
     
     PFQuery *query = [PFQuery queryWithClassName:@"Queue"];
+    [query orderByDescending:@"createdAt"];
+    [query whereKey:@"claimed" equalTo:@"false"];
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (error) {
             NSLog(@"Error: %@", error.localizedDescription);
@@ -71,6 +74,35 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Claim (courier)
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Deliberty"
+                                                                   message:@"Would you like to deliver this item?"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        [alert dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    UIAlertAction *accept = [UIAlertAction actionWithTitle:@"Accept" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        PFObject *item = (PFObject *)[_requests objectAtIndex:indexPath.row];
+        PFQuery *query = [PFQuery queryWithClassName:@"Queue"];
+        
+        [query whereKey:@"objectId" equalTo:item.objectId];
+        [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+            if (error) {
+                NSLog(@"Error: %@", error.localizedDescription);
+                
+            } else {
+                [object setObject:@(YES) forKey:@"claimed"];
+                [object saveInBackground];
+            }
+        }];
+    }];
+    
+    [alert addAction:cancel];
+    [alert addAction:accept];
+    
+    [self presentViewController:alert animated:YES completion:nil];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -92,12 +124,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Navigation
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
 }
 
 @end
