@@ -35,6 +35,7 @@
         object[@"room"] = _roomField.text;
         object[@"item"] = _itemName;
         object[@"claimed"] = @(NO);
+        object[@"user"] = [PFUser currentUser].objectId;
         
         [object saveInBackgroundWithBlock:^(BOOL success, NSError *error) {
             if (success) {
@@ -135,8 +136,8 @@
 
 - (UITextField *)cellTextField {
     UITextField *textField = [[UITextField alloc] initWithFrame:CELL_TEXTFIELD_FRAME];
-    textField.returnKeyType = UIReturnKeyNext;
-    textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    textField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
+    textField.autocorrectionType = UITextAutocorrectionTypeNo;
     textField.font = [UIFont fontWithName:@"HelveticaNeue" size:16.f];
     
     return textField;

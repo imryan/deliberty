@@ -27,7 +27,7 @@
     
     PFQuery *query = [PFQuery queryWithClassName:@"Queue"];
     [query orderByDescending:@"createdAt"];
-    [query whereKey:@"claimed" equalTo:@"false"];
+    [query whereKey:@"claimed" equalTo:@(NO)];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (error) {
@@ -95,6 +95,14 @@
             } else {
                 [object setObject:@(YES) forKey:@"claimed"];
                 [object saveInBackground];
+                
+                PFQuery *pushQuery = [PFInstallation query];
+                [pushQuery whereKey:@"objectId" equalTo:item[@"user"]];
+                
+                [PFPush sendPushMessageToQueryInBackground:pushQuery
+                                               withMessage:[NSString stringWithFormat:@"%@ will be delivering your order.", [PFUser currentUser][@"name"]]];
+                
+                [self refresh];
             }
         }];
     }];
